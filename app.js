@@ -17,8 +17,27 @@ app.get('/', async function (req,res) {
     }
 })
 
-app.get('/', function(req,res){
-    res.render('index', {data});
+app.get('/catalogue', async function (req,res) {
+    try {
+        const user = await userModel.getUserById(2);
+        res.render('catalogue',{ user });
+        console.log(user)
+    } catch(err) {
+        console.log(err);
+        res.status(500).send('Erreur lors de la récupération des données')
+    }
+})
+
+
+app.get('/connexion', async function (req,res) {
+    try {
+        const user = await userModel.getUserById(2);
+        res.render('connexion',{ user });
+        console.log(user)
+    } catch(err) {
+        console.log(err);
+        res.status(500).send('Erreur lors de la récupération des données')
+    }
 })
 
 
