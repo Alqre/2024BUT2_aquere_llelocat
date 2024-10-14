@@ -1,5 +1,8 @@
-<%- include('header') -%>
-<main>
-    <h1>Bonjour, bienvenue sur ma page web</h1>
-</main>
-<%- include('footer');-%>
+<%- include('header'); -%>
+    <main>
+        <h1>Bonjour, bienvenue sur ma page web</h1>
+        <% user.forEach(function(element){%>
+            <%= element.login%>
+        <%});%>
+    </main>
+    <%- include('footer');-%>
