@@ -9,5 +9,20 @@ footer {
 
 footer > ul {
     list-style-type : none;
+    flex-direction: row;
 }
 
+ul > div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.mentions {
+    flex-direction: column;
+    justify-content: flex-end;
+
+}
+
+.locfit {
+    font-weight: 600;
+}
