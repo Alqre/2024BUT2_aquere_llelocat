@@ -2,18 +2,19 @@ const express = require('express');
 const session = require('express-session');
 const app = express();
 const md5 = require('md5')
+const session = require('express-session');
 const userModel = require("./models/user.js");
 
 app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
-app.use(express.urlencoded({ extented: false }))
+app.use(express.urlencoded({ extended: false }))
 
 app.use(session({
     secret: 'pamplemousse',
     resave: false,
-    saveUnitialized: false
+    saveUninitialized: false
 }));
 
 
@@ -23,7 +24,7 @@ app.get('/login', async function (req,res) {
     }
 
     try {
-        const user = await userModel.getUserById(2);
+        const user = await userModel.getUserById(req.session.userId);
         res.render('index',{ user });
         console.log(user)
     } catch(err) {
@@ -51,7 +52,7 @@ app.post ('/connexion', async function (req, res) {
         return res.redirect("/");
     }
     else {
-        res.render("login", {error: "Mauvais mot de passe"});
+        res.render("connexion", {error: "Mauvais mot de passe"});
     }
 })
 
