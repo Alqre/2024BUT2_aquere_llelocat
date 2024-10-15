@@ -15,28 +15,24 @@ app.use(session({
     saveUnitialized: false
 }));
 
-
-
-
 app.get('/', async function (req,res) {
     if (!req.session.userId) {
         return res.redirect("/login")
-    }})
+    }
 
-app.get('/catalogue', async function (req,res) {
     try {
         const user = await userModel.getUserById(2);
-        res.render('catalogue',{ user });
+        res.render('index',{ user });
         console.log(user)
     } catch(err) {
         console.log(err);
         res.status(500).send('Erreur lors de la récupération des données')
-    }
-})
+    }})
+
 
 
 app.get('/connexion', async function (req,res) {
-    res.render("connexion");
+    res.render("connexion", {error: null});
 });
  
 
