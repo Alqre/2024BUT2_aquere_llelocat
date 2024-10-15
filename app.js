@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const app = express();
 const md5 = require('md5')
 const userModel = require("./models/user.js");
@@ -15,9 +16,10 @@ app.use(session({
     saveUnitialized: false
 }));
 
-app.get('/', async function (req,res) {
-    if (!req.session.userId) {
-        return res.redirect("/login")
+
+app.get('/login', async function (req,res) {
+    if (req.session.userId) {
+        return res.redirect("login")
     }
 
     try {
@@ -30,9 +32,8 @@ app.get('/', async function (req,res) {
     }})
 
 
-
-app.get('/connexion', async function (req,res) {
-    res.render("connexion", {error: null});
+app.get('/login', async function (req,res) {
+    res.render("login", {error: null});
 });
  
 
