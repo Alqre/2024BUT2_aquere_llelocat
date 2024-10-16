@@ -18,9 +18,11 @@ app.use(session({
 
 
 app.get('/login', async function (req,res) {
-    if (!req.session.userId) {
+    if (req.session.userId) {
         return res.redirect("login")
     }
+
+// Connexion auto 
 
     try {
         const user = await userModel.getUserById(2);
