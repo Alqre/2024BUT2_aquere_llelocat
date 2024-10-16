@@ -15,18 +15,17 @@
 <body>
     <header>
         <nav>
+            <h1>Locfit</h1>
             <ul>
-                <li><img src=""/></li>
                 <li><a href="/">Accueil</a></li>
                 <li><a href="catalogue">Catalogue</a></li>
-                <li>
+                <li class="connexion">
                     <% if(isAuth){%>
-                    <a href="logout">Déconnexion</a>
+                    <a href="logout">Déconnexion (<%=prenom%> <%=nom%>)</a>
                      <%} else {%>
                     <a href="login">Connexion</a>
                     <%}%>
                 </li>
-                <li><img src=""/></li>
             </ul>
         </nav>
     </header>
