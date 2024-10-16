@@ -1,5 +1,7 @@
-nav ul {display:flex;
+nav ul {
+    display:flex;
     justify-content: center;
 }
 
-nav li {margin-right:100px;}
+nav li {
+    margin-right:100px;}
