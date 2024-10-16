@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="../css/style/style.css">
+    <link rel="stylesheet" href="../css/style/header.css">
     <link rel="stylesheet" href="../css/style/footer.css">
 
     <title>Document</title>
@@ -18,7 +19,13 @@
                 <li><img src=""/></li>
                 <li><a href="/">Accueil</a></li>
                 <li><a href="catalogue">Catalogue</a></li>
-                <li><a href="connexion">Connexion</a></li>
+                <li>
+                    <% if(isAuth){%>
+                    <a href="logout">Déconnexion</a>
+                     <%} else {%>
+                    <a href="login">Connexion</a>
+                    <%}%>
+                </li>
                 <li><img src=""/></li>
             </ul>
         </nav>

@@ -8,34 +8,39 @@ app.set('view engine', 'ejs');
 
 app.use(express.static('public'));
 
-app.use(express.urlencoded({ extented: false }))
+app.use(express.urlencoded({ extended: false }))
 
 app.use(session({
     secret: 'pamplemousse',
     resave: false,
-    saveUnitialized: false
+    saveUninitialized: false
 }));
 
-
-app.get('/login', async function (req,res) {
-    if (!req.session.userId) {
-        return res.redirect("login")
+app.use(function(req,res,next){
+    if(req.session.userId){
+        res.locals.isAuth = true;
+        res.locals.id = req.session.userId;}
+    else{
+        res.locals.isAuth = false;
     }
+    next()
+})
 
-    try {
-        const user = await userModel.getUserById(2);
-        res.render('index',{ user });
-        console.log(user)
-    } catch(err) {
-        console.log(err);
-        res.status(500).send('Erreur lors de la récupération des données')
-    }})
-
+app.get('/', async function (req,res) {
+    res.render("index", {error: null});
+});
 
 app.get('/login', async function (req,res) {
     res.render("login", {error: null});
 });
  
+app.get('/logout', (req, res) => {
+    res.redirect('/')
+    req.session.destroy(err => {
+        if (err) {
+            console.error(err); // Log l'erreur si la destruction de session échoue
+            return res.redirect('/'); // Redirige vers la page d'accueil en cas d'erreur
+        }})})
 
 app.post ('/connexion', async function (req, res) {
     const login = req.body.login;
@@ -54,7 +59,6 @@ app.post ('/connexion', async function (req, res) {
         res.render("login", {error: "Mauvais mot de passe"});
     }
 })
-
 
 app.use(function (req,res){
     res.status(404).render("404");

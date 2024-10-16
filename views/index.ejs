@@ -3,8 +3,10 @@
 <%- include('header'); -%>
     <main>
         <h1>Bonjour, bienvenue sur ma page web</h1>
-        <% user.forEach(function(element){%>
-            <%= element.login%>
-        <%});%>
+        <% if(isAuth){%>
+            <p>connecté</p>
+        <%} else {;%>
+            <p>pas connecté</p>
+        <%};%>
     </main>
     <%- include('footer');-%>

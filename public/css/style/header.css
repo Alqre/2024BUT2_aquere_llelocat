@@ -1,5 +1,20 @@
-nav ul {display:flex;
+nav ul {
+    display: flex;
     justify-content: center;
 }
 
-nav li {margin-right:100px;}
+nav li {
+    margin-right: 100px;
+    color: #EDC86E;
+    list-style-type: none
+}
+
+nav a {
+    color: #EDC86E;
+}
+
+nav {
+    background-color: #000d3a;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
