@@ -2,4 +2,18 @@
 
 body {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='32' height='32' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23000d3aff'/><path d='M37.657 10.343l-4.243 4.243m-2.828 2.828l-4.243 4.243m11.314 0l-4.243-4.243m-2.828-2.828l-4.243-4.243m-20.686 0l-4.243 4.243m-2.828 2.828l-4.243 4.243m11.314 0l-4.243-4.243m-2.828-2.828l-4.243-4.243'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='%237c6a29ff' fill='none'/><path d='M16-8v6m0 4v6m8-8h-6m-4 0H8m8 24v6m0 4v6m8-8h-6m-4 0H8'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='%237a6929ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
-}
+    font-family: "Roboto";
+color:#f8f8f8;}
+
+
+main h1 {text-align: center;margin-top:-350px;font-size: 3rem;text-shadow: black 0px 0px 20px;}
+
+.bg {height:500px;width:100%;}
+
+.main_page_1{background-color: #000d3a;width:100%;height:1000px;}
+
+.main_page_0 {display: flex;justify-content: center;}
+
+.text{width:600px;height:50px;padding-left:10px;font-size: 1.8rem;}
+input:focus{outline:none}
+.submit {background-color: #edc86e;height:50px;width:50px;margin-left:-5px;}

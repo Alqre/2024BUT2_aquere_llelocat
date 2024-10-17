@@ -21,9 +21,9 @@
                 <li><a href="catalogue">Catalogue</a></li>
                 <li class="connexion">
                     <% if(isAuth){%>
-                    <a href="logout">Déconnexion (<%=prenom%> <%=nom%>)</a>
+                    <a href="logout">Déconnexion <strong>(<%=prenom%> <%=nom%>)</strong></a><img src="../css/img/user_image.png"/>
                      <%} else {%>
-                    <a href="login">Connexion</a>
+                    <a href="login">Connexion</a><style>.connexion {margin-left:650px;}</style>
                     <%}%>
                 </li>
             </ul>
