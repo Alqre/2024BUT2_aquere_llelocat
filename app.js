@@ -19,7 +19,10 @@ app.use(session({
 app.use(function(req,res,next){
     if(req.session.userId){
         res.locals.isAuth = true;
-        res.locals.id = req.session.userId;}
+        res.locals.id = req.session.userId;
+        res.locals.role = req.session.role;
+        res.locals.nom = req.session.nom;
+        res.locals.prenom = req.session.prenom;}
     else{
         res.locals.isAuth = false;
     }
@@ -28,6 +31,10 @@ app.use(function(req,res,next){
 
 app.get('/', async function (req,res) {
     res.render("index", {error: null});
+});
+
+app.get('/catalogue', async function (req,res) {
+    res.render("catalogue", {error: null});
 });
 
 app.get('/login', async function (req,res) {
@@ -53,6 +60,8 @@ app.post ('/connexion', async function (req, res) {
     if(user != false && user.password == mdp){
         req.session.userId = user.id;
         req.session.role = user.type_utilisateur;
+        req.session.nom = user.nom;
+        req.session.prenom = user.prenom;
         return res.redirect("/");
     }
     else {
