@@ -13,7 +13,7 @@ header h1 {
 }
 
 nav ul {
-    padding-top: 18px;
+    padding-top: 20px;
     display: flex;
     justify-content: center;
 }
@@ -39,8 +39,6 @@ nav a:hover {
 nav {
     display: flex;
     background-color: #000d3a;
-    padding-top: 10px;
-    padding-bottom: 10px;
 }
 
 .connexion {

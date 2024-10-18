@@ -1,19 +1,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+@font-face { font-family: Byom-Icons-Trial; src: url('Byom-Icons-Trial.ttf'); }
 body {
     background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='32' height='32' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23000d3aff'/><path d='M37.657 10.343l-4.243 4.243m-2.828 2.828l-4.243 4.243m11.314 0l-4.243-4.243m-2.828-2.828l-4.243-4.243m-20.686 0l-4.243 4.243m-2.828 2.828l-4.243 4.243m11.314 0l-4.243-4.243m-2.828-2.828l-4.243-4.243'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='%237c6a29ff' fill='none'/><path d='M16-8v6m0 4v6m8-8h-6m-4 0H8m8 24v6m0 4v6m8-8h-6m-4 0H8'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='%237a6929ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+    font-family: Roboto;
+    color: #f8f8f8;
+}
+
+
+main h1 {
+    text-align: center;
+    margin-top: -350px;
+    font-size: 3rem;
+    text-shadow: black 0px 0px 20px;
+    -webkit-text-stroke: 0px black;
+    font-weight: 700;
+}
+
+.bg {
+    height: 500px;
+    width: 100%;
+}
+
+.main_page_1 {
+    background-color: #000d3a;
+    width: 100%;
+    height: 500px;
+}
+
+.main_page_0 {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    width: 600px;
+    height: 60px;
+    padding-left: 20px;
+    font-size: 1.8rem;
+    border: none;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+
+input::placeholder {
+    font-style: italic;
+    opacity: 0.5;
+    font-size: 1.5rem;
     font-family: "Roboto";
-color:#f8f8f8;}
+}
+
+input:focus::placeholder {
+    opacity: 0;
+}
+
+input:focus {
+    outline: none;
+    color:#000d3a
+}
+
+input:focus + input{
+    color:white;
+}
 
 
-main h1 {text-align: center;margin-top:-350px;font-size: 3rem;text-shadow: black 0px 0px 20px;}
+input:focus + .submit {
+    box-shadow: #edc86e 0px 0px 20px;
+}
 
-.bg {height:500px;width:100%;}
+input:focus {
+    box-shadow: #edc86e 0px 0px 20px;
+}
 
-.main_page_1{background-color: #000d3a;width:100%;height:1000px;}
+.submit {
+    background-color: #edc86e;
+    height: 62px;
+    width: 62px;
+    margin-left: -5px;
+    border: none;
+    font-size: 1.7rem;
+    font-family: Byom-Icons-Trial;
+    padding-top: 3px;
+    color:white;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
 
-.main_page_0 {display: flex;justify-content: center;}
+.submit::content{color:white}
 
-.text{width:600px;height:50px;padding-left:10px;font-size: 1.8rem;}
-input:focus{outline:none}
-.submit {background-color: #edc86e;height:50px;width:50px;margin-left:-5px;}
+form {
+    box-shadow: black 0px 0px 20px;
+}
+
+form:focus{}
+
+.loupe_icon {
+    width: 50px;
+    height: 50px;
+    font-family:"FontAwesome";
+}
