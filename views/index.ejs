@@ -1,11 +1,14 @@
-<link rel="stylesheet" href="/public/css/style/style.css">
+
 
 <%- include('header'); -%>
     <main>
         <img class="bg" src="../css/img/fond_1.png" />
-        <h1>Faire une recherche</h1>
+        <h1>Rechercher</h1>
         <div class="main_page_0">
-            <form action="/recherche" method="post"><input class="text" type="text" name="login" /> <input class="submit" value="" type="submit"/></form>
+            <form action="/recherche" method="post">
+                <input class="text" type="text" placeholder="Trouvez du matériel à louer" name="login" />
+                <input class="submit" value="S" type="submit"/>
+            </form>
         </div>
         <div class="main_page_1"></div>
     </main>
