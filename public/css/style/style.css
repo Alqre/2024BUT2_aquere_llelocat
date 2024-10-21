@@ -98,3 +98,16 @@ form:focus{}
     height: 50px;
     font-family:"FontAwesome";
 }
+
+.Tuto {
+    display: flex;
+    justify-content: center;
+    margin-top:200px;
+}
+
+.highlight {
+    color:#edc86e;
+    font-size: 3rem;
+    margin-left:200px;
+    margin-right:200px;
+}

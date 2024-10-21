@@ -29,6 +29,7 @@ nav a {
     color: #f8f8f8;
     text-decoration: none;
     font-weight: bold;
+    transition: 0.2s;
 }
 
 nav a:hover {
