@@ -138,6 +138,27 @@ app.post('/ajouterproduit', async (req, res) => {
     }
 });
 
+
+
+// Route pour traiter les inscriptions
+app.get('/supprimerproduit/:id', async (req, res) => {
+    const id = parseInt(req.params.id);
+    try {
+            db.query('DELETE FROM produit WHERE id = ?', 
+                [id], 
+                (err, results) => {
+                    if (err) throw err;
+                    res.redirect("/catalogue");
+                }
+            );
+        ;
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Erreur du serveur.');
+    }
+});
+
+
 app.use(function (req,res){
     res.status(404).render("404");
 })

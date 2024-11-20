@@ -7,8 +7,10 @@
                     <article class="catalogue-article">
                         <img src="../css/img/produits/<%=i+1%>.jpg" alt="Produit <%=i+1%>">
                         <p><%=product[i].type%></p>
-                        <%if(isAuth){if(role=='agent'){%>
-                            <a href="removeproduct">Supprimer un produit</a>
+                        <%if(isAuth){if(role=='agent'){
+                            
+                            %>
+                            <a href="supprimerproduit/<%=product[i].id%>">Supprimer un produit</a>
                         <%}}%>
                     </article>
                     <%}%>
