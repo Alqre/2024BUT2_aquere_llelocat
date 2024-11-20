@@ -6,7 +6,12 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: center;
+}
 
+.footer-top {
+    background-color: #edc86e;
+    width:100%;
+    height:3px;
 }
 
 .footer-center {

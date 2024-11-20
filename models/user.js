@@ -12,6 +12,18 @@ async function getUserById (id) {
     });
 };
 
+async function getProductById () {
+    sql = "SELECT * FROM produit";
+    return new Promise((resolve, reject) => {
+        bdd.query(sql, (err, results) => {
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
+};
+
 async function checklogin (login) {
     sql = "SELECT * FROM utilisateur WHERE login = ?";
     return new Promise((resolve, reject) => {
@@ -25,4 +37,5 @@ async function checklogin (login) {
 };
 
 
-module.exports = {getUserById, checklogin};
+
+module.exports = {getUserById, getProductById, checklogin};

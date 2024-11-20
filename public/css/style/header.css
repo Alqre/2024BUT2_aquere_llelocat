@@ -21,8 +21,9 @@ nav ul {
 nav li {
     color: #EDC86E;
     list-style-type: none;
-    margin-left: 150px;
-}
+    margin-left: 50px;
+
+ }
 
 nav a {
     font-size: 1.2rem;
@@ -43,7 +44,7 @@ nav {
 }
 
 .connexion {
-    margin-left: 580px;
+    margin-left: 800px;
     display: flex;
     text-overflow: ellipsis;
     width: 100px;

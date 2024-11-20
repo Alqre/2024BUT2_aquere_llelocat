@@ -1,0 +1,19 @@
+<%- include('header'); -%>
+
+<form action="/ajouterproduit" method="POST">
+    <label for="type">Type :</label>
+    <input type="text" id="type" name="type" required>
+    <label for="description">Description :</label>
+    <input type="text" id="description" name="description" required>
+    <label for="marque">Marque :</label>
+    <input type="text" id="marque" name="marque" required>
+    <label for="modele">Modèle :</label>
+    <input type="text" id="modele" name="modele" required>
+    <label for="prix_location">Prix :</label>
+    <input type="text" id="prix_location" name="prix_location" required>
+    <label for="etat">État :</label>
+    <input type="text" id="etat" name="etat" required>
+    <button type="submit">Ajouter un produit</button>
+</form>
+
+<%- include('footer'); -%>

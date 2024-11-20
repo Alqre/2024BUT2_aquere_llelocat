@@ -1,37 +1,24 @@
-<%- include('header'); -%>
+<%- include('header') -%>
 
-<body>
-    <main>
-        <article>
-            <img src="/public/css/img/" alt="produit1">
-            <p>Produit1</p>
-        </article>
+    <body>
+        <main>
+            <section class="main-catalogue">
+                <% for(i=0; i<product.length;i++){ %>
+                    <article class="catalogue-article">
+                        <img src="../css/img/produits/<%=i+1%>.jpg" alt="Produit <%=i+1%>">
+                        <p><%=product[i].type%></p>
+                        <%if(isAuth){if(role=='agent'){%>
+                            <a href="removeproduct">Supprimer un produit</a>
+                        <%}}%>
+                    </article>
+                    <%}%>
+            </section>
+        </main>
+    </body>
 
-        <article>
-            <img src="/public/css/img/" alt="produit2">
-            <p>Produit2</p>
-        </article>
+    <%- include('footer');-%>
 
-        <article>
-            <img src="/public/css/img/" alt="produit3">
-            <p>Produit3</p>
-        </article>
-
-        <article>
-            <img src="/public/css/img/" alt="produit4">
-            <p>Produit4</p>
-        </article>
-
-        <article>
-            <img src="/public/css/img/" alt="produit5">
-            <p>Produit5</p>
-        </article>
-
-        <article>
-            <img src="/public/css/img/" alt="produit6">
-            <p>Produit6</p>
-        </article>
-    </main>    
-</body>
-
-<%- include('footer');-%>
+    <%if(isAuth){if(role=='admin'){%>
+        <style>.connexion {margin-left:500px;}</style>
+    <li><a href="creationgerant">Créer un compte gérant</a></li>
+    <%}}%>
