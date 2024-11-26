@@ -18,20 +18,20 @@
             <h1>Locfit</h1>
             <ul>
                 <li><a href="/">Accueil</a></li>
-                <li><a href="catalogue">Catalogue</a></li>
+                <li><a href="/catalogue">Catalogue</a></li>
                 <%if(isAuth){if(role=='admin'){%>
                     <style>.connexion {margin-left:500px;}</style>
-                <li><a href="creationgerant">Créer un compte gérant</a></li>
+                <li><a href="/creationgerant">Créer un compte gérant</a></li>
                 <%}}%>
                 <%if(isAuth){if(role=='agent'){%>
                     <style>.connexion {margin-left:500px;}</style>
-                <li><a href="ajouterproduit">Ajouter un produit</a></li>
+                <li><a href="/ajouterproduit">Ajouter un produit</a></li>
                 <%}}%>
                 <li class="connexion">
                     <% if(isAuth){%>
-                    <a href="logout">Déconnexion <strong>(<%=prenom%> <%=nom%>)</strong></a><img src="../css/img/user_image.png"/>
+                    <a href="/logout">Déconnexion <strong>(<%=prenom%> <%=nom%>)</strong></a><a href="/moncompte"><img src="../css/img/user_image.png"/></a>
                      <%} else {%>
-                    <a href="login">Connexion</a><style>.connexion {margin-left:850px;}</style>
+                    <a href="/login">Connexion</a><style>.connexion {margin-left:850px;}</style>
                     <%}%>
                 </li>
             </ul>

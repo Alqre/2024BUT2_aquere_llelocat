@@ -83,22 +83,23 @@
     
     <div class="login-container">
         <div class="login-box">
-            <form action="/inscription" method="POST">
-                <label for="login">Identifiant :</label>
-                <input type="text" id="login" name="login" required>
+            <form action="/moncompte" method="POST">
                 <label for="nom">Nom :</label>
                 <input type="text" id="nom" name="nom" required>
                 <label for="prenom">Prenom :</label>
                 <input type="text" id="prenom" name="prenom" required>
                 <label for="ddn">Date de naissance :</label>
-                <input type="date" id="ddn" name="ddn" min="1900-01-01" max="<%let b = new Date().getTime() -568148000000;let c = new Date(b)%><%=c.getFullYear()%>-<%=c.getMonth()+1%>-<%=c.getDate()%>" required>
+                <input type="date" id="ddn" name="ddn" required>
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
                 <label for="mdp">Mot de passe:</label>
                 <input type="text" id="mdp" name="mdp" required>
-                <button type="submit">S'inscrire</button>
+                <input type="hidden" id="id" name="id" value="<%=id%>" required>
+                <button type="submit">Confirmer les modifications</button>
             </form>
-            <a href="/login">Se connecter</a>
+            <%if(isAuth){if(role=='client'){%>
+            <a href="/supprimercompte">Supprimer mon compte</a><%}}%>
+            <a href="/">Retourner à l'accueil</a>
         </div>
     </div>
 </body>

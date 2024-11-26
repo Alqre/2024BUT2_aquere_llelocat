@@ -6,12 +6,10 @@
                 <% for(i=0; i<product.length;i++){ %>
                     <article class="catalogue-article">
                         <img src="../css/img/produits/<%=i+1%>.jpg" alt="Produit <%=i+1%>">
-                        <p><%=product[i].type%></p>
-                        <%if(isAuth){if(role=='agent'){
-                            
-                            %>
-                            <a href="supprimerproduit/<%=product[i].id%>">Supprimer un produit</a>
-                        <%}}%>
+                        <p>
+                            <%=product[i].type%>
+                            <a href="produit/<%=product[i].id%>">Consulter le produit</a>
+                        </p>
                     </article>
                     <%}%>
             </section>
@@ -20,7 +18,11 @@
 
     <%- include('footer');-%>
 
-    <%if(isAuth){if(role=='admin'){%>
-        <style>.connexion {margin-left:500px;}</style>
-    <li><a href="creationgerant">Créer un compte gérant</a></li>
-    <%}}%>
+        <%if(isAuth){if(role=='admin'){%>
+            <style>
+                .connexion {
+                    margin-left: 500px;
+                }
+            </style>
+            <li><a href="creationgerant">Créer un compte gérant</a></li>
+            <%}}%>
