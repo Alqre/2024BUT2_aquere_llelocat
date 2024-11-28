@@ -30,7 +30,6 @@
 
         form {
             display: flex;
-            flex-direction: column;
             justify-content: center;
             margin-top: 10%;
         }
@@ -39,8 +38,14 @@
             padding: 3%;
         }
 
+        .info_row {
+        display: flex;
+        flex-direction: row;
+
+        }
         .info_user {
             display: flex;
+            justify-content: center;
             flex-direction: column;
             
         }
@@ -61,8 +66,6 @@
           padding: 2%;
         }
 
-
-
         .connect {
         padding: 10px;
         border: none;
@@ -71,11 +74,27 @@
         cursor: pointer;
         }
 
-        .button-connect > input {
-            padding: 15px 40px;
+        .button-box {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .button-connect {
+            padding: 6%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-connect > input,a {
+            display: flex;
+            flex-direction: row;
+            padding: 15px 35px;
             border: none;
+            justify-content: center;
             background-color: #D1B17F;
             color: #000d3a;
+            text-decoration: none;
             cursor: pointer;
             font-size: 16px;
         }
@@ -83,23 +102,56 @@
     
     <div class="login-container">
         <div class="login-box">
+            <h2>Modification du compte</h2>  
             <form action="/moncompte" method="POST">
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" required>
-                <label for="prenom">Prenom :</label>
-                <input type="text" id="prenom" name="prenom" required>
-                <label for="ddn">Date de naissance :</label>
-                <input type="date" id="ddn" name="ddn" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="mdp">Mot de passe:</label>
-                <input type="text" id="mdp" name="mdp" required>
-                <input type="hidden" id="id" name="id" value="<%=id%>" required>
-                <button type="submit">Confirmer les modifications</button>
+                <div class="connect">
+                    <div class="info_row">
+                        <div class="info_user">
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                    
+                        <div class="info_user">
+                            <label for="prenom">Prenom :</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                    </div>
+                    
+                    <div class="info_row">
+                        <div class="info_user">
+                            <label for="ddn">Date de naissance :</label>
+                            <input type="date" id="ddn" name="ddn" required>
+                        </div>    
+
+                        <div class="info_user">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>    
+
+                    <div class="info_user">    
+                        <label for="mdp">Mot de passe:</label>
+                        <input type="text" id="mdp" name="mdp" required>
+                        <input type="hidden" id="id" name="id" value="<%=id%>" required>
+                    </div>
+
+            <%if(isAuth){if(role=='client'){%>    
+                
+                    <div class="button-box">
+                        <div class="button-connect">
+                            <a href="/">Retour à l'accueil</a>
+                        </div>
+
+                        <div class="button-connect">    
+                            <input type="submit" value="Confirmer les modifications">
+                        </div> 
+                        
+                        <div class="button-connect">    
+                            <a href="/supprimercompte">Supprimer mon compte</a><%}}%>
+                        </div>
+                    </div>
+                </div>
             </form>
-            <%if(isAuth){if(role=='client'){%>
-            <a href="/supprimercompte">Supprimer mon compte</a><%}}%>
-            <a href="/">Retourner à l'accueil</a>
         </div>
     </div>
 </body>

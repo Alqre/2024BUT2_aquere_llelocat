@@ -32,7 +32,6 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            margin-top: 10%;
         }
 
         div {
@@ -55,11 +54,7 @@
         }
 
         .connect {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
             color: #FFFFFF;
-            cursor: pointer;
         }
 
         .button-connect {
@@ -68,11 +63,12 @@
             justify-content: center;
         }
 
-        .button-connect>input {
-            padding: 15px 40px;
+        .button-connect > input,a {
+            padding: 12px 35px;
             border: none;
             background-color: #D1B17F;
             color: #000d3a;
+            text-decoration: none;
             cursor: pointer;
             font-size: 16px;
             margin: 2%;
@@ -102,9 +98,9 @@
                     </div>
                     <div class="button-connect">
                         <input type="submit" value="Se connecter"/>
+                        <a href="/inscription">S'inscrire</a>
                     </div>
                 </form>
-                <a href="/inscription">S'inscrire</a>
             </div>
         </div>
     </body>

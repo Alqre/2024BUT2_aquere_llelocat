@@ -18,9 +18,8 @@
         
         .login-box {
             background-color: #000d3a;
-            padding: 20px 150px;
+            padding: 20px 120px;
             border: 2px solid #D1B17F;
-            width: 400px;
             text-align:center;
         }
 
@@ -30,24 +29,19 @@
 
         form {
             display: flex;
-            flex-direction: column;
             justify-content: center;
-            margin-top: 10%;
-        }
-
-        div {
-            padding: 3%;
         }
 
         .info_user {
             display: flex;
             flex-direction: column;
+            padding: 2%;
             
         }
 
         .info_user > input {
-            width: 250px;
-            height: 30px;
+            width: 200px;
+            height: 20px;
         }
 
         label {
@@ -56,49 +50,86 @@
         }
 
         .column {
-          display: flex;
-          justify-content: center;
-          padding: 2%;
+            display: flex;
+            justify-content: center;
+            padding: 2%;
         }
-
-
 
         .connect {
-        padding: 10px;
-        border: none;
-        border-radius: 5px;
-        color: #FFFFFF;
-        cursor: pointer;
+            color: #FFFFFF;
+
         }
 
-        .button-connect > input {
-            padding: 15px 40px;
+        .info_row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .button-connect {
+            padding: 6%;
+            display: flex;
+            justify-content: center;
+        }
+
+        .button-connect > input,a  {
+            padding: 12px 35px;
             border: none;
             background-color: #D1B17F;
             color: #000d3a;
+            text-decoration: none;
             cursor: pointer;
             font-size: 16px;
+            margin: 1%;
         }
     </style>
     
     <div class="login-container">
         <div class="login-box">
+            <h2>Inscription</h2>
             <form action="/inscription" method="POST">
-                <label for="login">Identifiant :</label>
-                <input type="text" id="login" name="login" required>
-                <label for="nom">Nom :</label>
-                <input type="text" id="nom" name="nom" required>
-                <label for="prenom">Prenom :</label>
-                <input type="text" id="prenom" name="prenom" required>
-                <label for="ddn">Date de naissance :</label>
-                <input type="date" id="ddn" name="ddn" min="1900-01-01" max="<%let b = new Date().getTime() -568148000000;let c = new Date(b)%><%=c.getFullYear()%>-<%=c.getMonth()+1%>-<%=c.getDate()%>" required>
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-                <label for="mdp">Mot de passe:</label>
-                <input type="text" id="mdp" name="mdp" required>
-                <button type="submit">S'inscrire</button>
+                <div class="connect">
+                    <div class="info_row">
+                        <div class="info_user">
+                            <label for="login">Identifiant :</label>
+                            <input type="text" id="login" name="login" required>
+                        </div>
+
+                        <div class="info_user">
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                    </div>
+
+                    <div class="info_row">
+                        <div class="info_user">
+                            <label for="prenom">Prenom :</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                    
+                        <div class="info_user">
+                            <label for="ddn">Date de naissance :</label>
+                            <input type="date" id="ddn" name="ddn" min="1900-01-01" max="<%let b = new Date().getTime() -568148000000;let c = new Date(b)%><%=c.getFullYear()%>-<%=c.getMonth()+1%>-<%=c.getDate()%>" required>
+                        </div>
+                    </div>
+
+                    <div class="info_row">    
+                        <div class="info_user">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    
+                        <div class="info_user">
+                            <label for="mdp">Mot de passe:</label>
+                            <input type="text" id="mdp" name="mdp" required>
+                        </div>
+                    </div>
+                    
+                    <div class="button-connect">
+                        <input type="submit" value="S'inscrire"/>
+                        <a href="/login">Se connecter</a>
+                    </div>
+                </div>    
             </form>
-            <a href="/login">Se connecter</a>
         </div>
     </div>
 </body>

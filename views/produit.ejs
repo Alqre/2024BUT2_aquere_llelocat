@@ -1,39 +1,122 @@
 <%- include('header'); -%>
-    <h1>
-        <%=product.type%>
-    </h1>
-    <p>
+    
+    <style>
+
+    form {
+        display: flex;
+        justify-content:flex-start;
+        box-shadow: none !important;
+        margin-bottom: 17%;
+    }
+
+    .info_user {
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+    }
+
+    .info_user > input {
+        width: 200px;
+        height: 20px;
+    }
+
+    .infos_product {
+        display: flex;
+        flex-direction: column;
+        padding-left: 4%;
+    }
+
+    .button-connect {
+        padding: 3%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .button-connect > a {
+        padding: 12px 35px;
+        border: none;
+        background-color: #D1B17F;
+        color: #000d3a;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 1%;
+    }
+
+    .button-connect > input {
+        padding: 12px 35px;
+        border: none;
+        background-color: #D1B17F;
+        color: #000d3a;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 1%;
+    }
+
+
+    </style>
+
+
+    <div class="infos_product">
+        <h1>
+            <%=product.type%>
+        </h1>
+    
+        <p>
         <%=product.type%>,<%=product.description%>,<%=product.marque%>,<%=product.modele%>,<%=product.prix_location%>€ +
                             5€/jour,<%=product.etat%>
-    </p>
+        </p>
+    </div>
 
     <%if(isAuth){if(role=='agent'){ %>
 
-        <a href="/validerlocation/<%=product.id%>">Valider la location</a>
+        
+        <div class="button-connect"> 
+            <a href="/validerlocation/<%=product.id%>">Valider la location</a>
+        </div>    
 
-        <a href="/supprimerproduit/<%=product.id%>">Supprimer un produit</a>
+        <div class="button-connect">
+            <a href="/supprimerproduit/<%=product.id%>">Supprimer le produit</a>
+        </div>
+        
+        
         <%}}%>
             <%if(isAuth){if(role=='client' && existe && location.utilisateur_id==id){ %>
+                
+                
                 <p>Vous louez ce produit. Cette location vous coûte au total : <%=location.prix_total%>€.</p>
-                <a href="/supprimerlocation/<%=product.id%>">Rendre/Annuler la location</a>
+                <div class="button-connect">
+                    <a href="/supprimerlocation/<%=product.id%>">Rendre/Annuler la location</a>
+                </div>
                 <%}}%>
                 <%if(isAuth){if(role=='client' && existe && location.utilisateur_id!=id){ %>
                     <p>Vous ne pouvez pas louer ce produit car il a déjà été louer ou n'est pas louable.</p>
                     <%}}%>
                     <%if(isAuth){if(role=='client' && !existe){ %>
                         <form action="/ajouterlocation" method="POST">
-                            <label for="date_debut">Date de début :</label>
-                            <input type="date" id="date_debut" name="date_debut"
-                                min="<%let a = new Date()%><%=a.getFullYear()%>-<%=a.getMonth()+1%>-<%=a.getDate()%>"
-                                max="<%let b = new Date().getTime() +2592000000;let c = new Date(b);%><%=c.getFullYear()%>-<%=c.getMonth()+1%>-<%=c.getDate()%>"
-                                required>
-                            <label for="date_retour_prevue">Date de retour :</label>
-                            <input type="date" id="date_retour_prevue" name="date_retour_prevue"
-                                min="<%=a.getFullYear()%>-<%=a.getMonth()+1%>-<%=a.getDate()%>"
-                                max="<%=c.getFullYear()%>-<%=c.getMonth()+1%>-<%=c.getDate()%>" required>
-                            <input type="hidden" id="utilisateur_id" name="utilisateur_id" value="<%=id%>" required>
-                            <input type="hidden" id="produit_id" name="produit_id" value="<%=product.id%>" required>
-                            <button type="submit">Louer</button>
+                            <div class="info_user">
+                                <label for="date_debut">Date de début :</label>
+                                <input type="date" id="date_debut" name="date_debut"
+                                    min="<%let a = new Date()%><%=a.getFullYear()%>-<%=a.getMonth()+1%>-<%=a.getDate()%>"
+                                    max="<%let b = new Date().getTime() +2592000000;let c = new Date(b);%><%=c.getFullYear()%>-<%=c.getMonth()+1%>-<%=c.getDate()%>"
+                                    required>
+                            </div>
+
+                            <div class="info_user">
+                                <label for="date_retour_prevue">Date de retour :</label>
+                                <input type="date" id="date_retour_prevue" name="date_retour_prevue"
+                                    min="<%=a.getFullYear()%>-<%=a.getMonth()+1%>-<%=a.getDate()%>"
+                                    max="<%=c.getFullYear()%>-<%=c.getMonth()+1%>-<%=c.getDate()%>" required>
+                            </div>        
+                                    
+                                    <input type="hidden" id="utilisateur_id" name="utilisateur_id" value="<%=id%>" required>
+                                    <input type="hidden" id="produit_id" name="produit_id" value="<%=product.id%>" required>
+                            
+                                    <div class="button-connect">
+                                        <input type="submit" value="Louer"/>
+                                    </div>
                         </form>
-                        <%}}%>
+                <%}}%>
+           
 <%- include('footer'); -%>

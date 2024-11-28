@@ -1,17 +1,122 @@
 <%- include('header'); -%>
-<form action="/creationgerant" method="POST">
-    <label for="login">Identifiant :</label>
-    <input type="text" id="login" name="login" required>
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required>
-    <label for="prenom">Prenom :</label>
-    <input type="text" id="prenom" name="prenom" required>
-    <label for="date">Date de naissance :</label>
-    <input type="text" id="ddn" name="ddn" required>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" required>
-    <label for="mdp">Mot de passe:</label>
-    <input type="text" id="mdp" name="mdp" required>
-    <button type="submit">Créer un gérant</button>
-</form>
+
+<body>
+
+<style>
+    body {
+        font-family: "Roboto", sans-serif;
+        background-image: url("data:image/svg+xml,<svg id='patternId' width='100%' height='100%' xmlns='http://www.w3.org/2000/svg'><defs><pattern id='a' patternUnits='userSpaceOnUse' width='32' height='32' patternTransform='scale(2) rotate(0)'><rect x='0' y='0' width='100%' height='100%' fill='%23000d3aff'/><path d='M37.657 10.343l-4.243 4.243m-2.828 2.828l-4.243 4.243m11.314 0l-4.243-4.243m-2.828-2.828l-4.243-4.243m-20.686 0l-4.243 4.243m-2.828 2.828l-4.243 4.243m11.314 0l-4.243-4.243m-2.828-2.828l-4.243-4.243'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='%237c6a29ff' fill='none'/><path d='M16-8v6m0 4v6m8-8h-6m-4 0H8m8 24v6m0 4v6m8-8h-6m-4 0H8'  stroke-linejoin='round' stroke-linecap='round' stroke-width='1' stroke='%237a6929ff' fill='none'/></pattern></defs><rect width='800%' height='800%' transform='translate(0,0)' fill='url(%23a)'/></svg>");
+        height: 100%; 
+    }
+        
+    .login-container {
+        display: flex;
+        margin: 5%;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    .login-box {
+        background-color: #000d3a;
+        padding: 20px 120px;
+        border: 2px solid #D1B17F;
+        width: 300px;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        justify-content: center;
+        box-shadow: none !important;
+    }
+
+    .info_user {
+        display: flex;
+        flex-direction: column;
+        padding: 2%;
+    }
+
+    .info_user > input {
+        width: 200px;
+        height: 20px;
+    }
+        
+    label {
+        margin-bottom: 5%;
+        text-align: left;
+    }
+
+    .info_row {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .button-connect {
+        padding: 6%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .button-connect > input  {
+        padding: 12px 35px;
+        border: none;
+        background-color: #D1B17F;
+        color: #000d3a;
+        text-decoration: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin: 1%;
+    }
+
+</style>
+    
+    <main class="login-container">
+        <div class="login-box">   
+            <form action="/creationgerant" method="POST">
+                <div class="connect">
+                    <div class="info_row">    
+                        <div class="info_user">
+                            <label for="login">Identifiant :</label>
+                            <input type="text" id="login" name="login" required>
+                        </div>
+
+                        <div class="info_user">
+                            <label for="nom">Nom :</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                    </div>
+
+                    <div class="info_row">
+                        <div class="info_user">   
+                            <label for="prenom">Prenom :</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+
+                        <div class="info_user">    
+                            <label for="date">Date de naissance :</label>
+                            <input type="date" id="ddn" name="ddn" min="1900-01-01" max="<%let b = new Date().getTime() -568148000000;let c = new Date(b)%><%=c.getFullYear()%>-<%=c.getMonth()+1%>-<%=c.getDate()%>" required>
+                        </div>
+                    </div>
+
+                    <div class="info_row">
+                        <div class="info_user">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+
+                        <div class="info_user">    
+                            <label for="mdp">Mot de passe:</label>
+                            <input type="text" id="mdp" name="mdp" required>
+                        </div>
+                    </div>
+
+                    <div class="button-connect">
+                        <input type="submit" value="Créer un gérant"/>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>         
+</body>
 <%- include('footer'); -%>

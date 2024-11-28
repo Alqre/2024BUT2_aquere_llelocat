@@ -1,5 +1,24 @@
 <%- include('header') -%>
+    
+<style>
 
+.button-connect {
+    display: flex;
+    justify-content: center;
+}
+
+.button-connect > a {
+    padding: 12px 35px;
+    border: none;
+    background-color: #D1B17F;
+    color: #000d3a;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+</style>
     <body>
         <main>
             <section class="main-catalogue">
@@ -8,7 +27,9 @@
                         <img src="../css/img/produits/<%=i+1%>.jpg" alt="Produit <%=i+1%>">
                         <p>
                             <%=product[i].type%>
-                            <a href="produit/<%=product[i].id%>">Consulter le produit</a>
+                            <div class="button-connect">
+                                <a href="produit/<%=product[i].id%>">Consulter le produit</a>
+                            </div>
                         </p>
                     </article>
                     <%}%>
@@ -26,3 +47,5 @@
             </style>
             <li><a href="creationgerant">Créer un compte gérant</a></li>
             <%}}%>
+
+        
